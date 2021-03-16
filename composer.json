@@ -16,7 +16,10 @@
     "autoload": {
         "psr-4": {
             "Nashgao\\Utils\\": "src"
-        }
+        },
+        "files": [
+            "src/Helper/function.php"
+        ]
     },
     "scripts": {
         "cs-fix": "php-cs-fixer fix $1"
