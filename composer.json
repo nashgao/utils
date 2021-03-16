@@ -1,0 +1,24 @@
+{
+    "name": "nashgao/utils",
+    "authors": [
+        {
+            "name": "nashgao",
+            "email": "nashgao1992@gmail.com"
+        }
+    ],
+    "description": "",
+    "require": {
+        "easyswoole/spl": "1.3.*"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.14"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nashgao\\Utils\\": "src"
+        }
+    },
+    "scripts": {
+        "cs-fix": "php-cs-fixer fix $1"
+    }
+}
