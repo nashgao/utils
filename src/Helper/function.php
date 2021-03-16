@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-use Nashgao\Utils\Bean\SplBeanBean;
+use Nashgao\Utils\Bean\SplBean;
 
 if (! function_exists('filterBean')) {
     /**
      * Filter the bean and to array with not null.
      */
-    function filterBean(SplBeanBean $bean, array $filter = []): array
+    function filterBean(SplBean $bean, array $filter = []): array
     {
         $validKeys = array_diff_key($bean->toArrayWithMapping(), array_fill_keys($filter, null));
         if (empty($validKeys)) {

@@ -6,7 +6,7 @@ namespace Nashgao\Utils\Bean;
 
 use EasySwoole\Spl\SplBean as Bean;
 
-abstract class SplBeanBean extends Bean implements SplBeanInterface
+abstract class SplBean extends Bean implements SplBeanInterface
 {
     /**
      * @param null $filter
