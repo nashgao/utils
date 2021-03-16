@@ -6,6 +6,7 @@
             "email": "nashgao1992@gmail.com"
         }
     ],
+    "license": "MIT",
     "description": "",
     "require": {
         "easyswoole/spl": "1.3.*"
