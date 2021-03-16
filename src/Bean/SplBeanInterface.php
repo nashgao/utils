@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Nashgao\Utils\Bean;
 
-interface SplInterface
+interface SplBeanInterface
 {
     public function issetPrimaryKey():bool;
     public function getPrimaryKey();
