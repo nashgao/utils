@@ -2,23 +2,19 @@
 
 declare(strict_types=1);
 
-use Hyperf\Contract\ConfigInterface;
-use Hyperf\Utils\ApplicationContext;
+
 use Nashgao\Utils\Bean\SplBean;
-use Psr\Container\ContainerInterface;
-use Swoole\Server;
 
-if (! function_exists('di')) {
-    function di(): ContainerInterface
+if (! function_exists('flatmap')) {
+    function flatmap(array $arr, callable $fn = null): array
     {
-        return ApplicationContext::getContainer();
-    }
-}
+        if (! isset($fn)) {
+            $fn = function (array $arr) {
+                return $arr;
+            };
+        }
 
-if (! function_exists('dispatch')) {
-    function dispatch(object $event): object
-    {
-        return di()->get(EventDispatcherInterface::class)->dispatch($event);
+        return array_merge(...array_map($fn, $arr));
     }
 }
 
@@ -36,32 +32,5 @@ if (! function_exists('filterBean')) {
             return [];
         }
         return $bean->toArray(array_keys(array_diff_key($bean->toArrayWithMapping(), array_fill_keys($filter, null))), $bean::FILTER_NOT_NULL);
-    }
-}
-
-if (! function_exists('getServer')) {
-    function getServer(): ?Server
-    {
-        try {
-            return di()->get(Server::class);
-        } catch (\Throwable $throwable) {
-            return null;
-        }
-    }
-}
-
-if (! function_exists('getWorkerId')) {
-    function getWorkerId(): int
-    {
-        try {
-            $server = getServer();
-            if (! $server->taskworker) {
-                return $server->worker_id;
-            }
-            $workerNum = di()->get(ConfigInterface::class)->get('server.settings.worker_num');
-            return $workerNum + $server->worker_id;
-        } catch (\Throwable $throwable) {
-            return 0;
-        }
     }
 }

@@ -22,7 +22,9 @@
             "Nashgao\\Utils\\": "src"
         },
         "files": [
-            "src/Helper/function.php"
+            "src/Helper/hyperf.php",
+            "src/Helper/function.php",
+            "src/Helper/utils.php"
         ]
     },
     "scripts": {
