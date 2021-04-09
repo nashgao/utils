@@ -5,12 +5,20 @@ declare(strict_types=1);
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\Utils\ApplicationContext;
 use Psr\Container\ContainerInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Swoole\Server;
 
 if (! function_exists('di')) {
     function di(): ContainerInterface
     {
         return ApplicationContext::getContainer();
+    }
+}
+
+if (! function_exists('config')) {
+    function config(): ConfigInterface
+    {
+        return ApplicationContext::getContainer()->get(ConfigInterface::class);
     }
 }
 
