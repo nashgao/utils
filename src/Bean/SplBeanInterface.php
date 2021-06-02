@@ -10,8 +10,6 @@ interface SplBeanInterface
 
     public function getPrimaryKey();
 
-    public static function collection();
-
     public static function of();
 
     public function toArray(array $columns = null, $filter = null);

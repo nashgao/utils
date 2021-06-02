@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 use Nashgao\Utils\Bean\SplBean;
 
 if (! function_exists('flatmap')) {
@@ -21,9 +20,6 @@ if (! function_exists('flatmap')) {
 if (! function_exists('filterBean')) {
     /**
      * Filter the bean and to array with not null.
-     * @param SplBean $bean
-     * @param array $filter
-     * @return array
      */
     function filterBean(SplBean $bean, array $filter = []): array
     {
