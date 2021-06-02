@@ -13,9 +13,25 @@ abstract class SplBean extends Bean implements SplBeanInterface
         return new static($parameters);
     }
 
-    public static function collection(): SplBeanCollection
+    public function filter(callable $fn): array
     {
-        return SplBeanCollection::of();
+        $result = [];
+        foreach (get_object_vars($this) as $key => $value) {
+            if ($fn($value, $key)) {
+                $result[$key] = $value;
+            }
+        }
+
+        return $result;
+    }
+
+    public function map(callable $fn): SplBean
+    {
+        foreach (get_object_vars($this) as $key => $value) {
+            $this->{$key} = $fn($value, $key);
+        }
+
+        return static::of(get_object_vars($this));
     }
 
     /**
