@@ -11,6 +11,7 @@
     "require": {
         "hyperf/di": "~2.1.0",
         "hyperf/utils": "~2.1.0",
+        "hyperf/snowflake": "~2.1.0",
         "easyswoole/spl": "1.3.*"
     },
     "require-dev": {

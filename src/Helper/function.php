@@ -30,3 +30,14 @@ if (! function_exists('filterBean')) {
         return $bean->toArray(array_keys(array_diff_key($bean->toArrayWithMapping(), array_fill_keys($filter, null))), $bean::FILTER_NOT_NULL);
     }
 }
+
+if (! function_exists('urlmd5')) {
+    function urlmd5($param): string
+    {
+        if (! is_string($param)) {
+            $param = (string) $param;
+        }
+
+        return urlencode(md5($param));
+    }
+}

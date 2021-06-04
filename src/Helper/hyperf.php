@@ -50,6 +50,13 @@ if (! function_exists('getWorkerId')) {
     }
 }
 
+if (! function_exists('getWorkerNumber')) {
+    function getWorkerNum(): int
+    {
+        return di()->get(ConfigInterface::class)->get('server.settings.worker_num');
+    }
+}
+
 if (! function_exists('generateId')) {
     function generateId()
     {
