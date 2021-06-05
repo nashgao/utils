@@ -57,8 +57,15 @@ if (! function_exists('getWorkerNumber')) {
     }
 }
 
+if (! function_exists('isTaskWorker')) {
+    function isTaskWorker(): bool
+    {
+        return getServer()->taskworker;
+    }
+}
+
 if (! function_exists('generateId')) {
-    function generateId()
+    function generateId(): int
     {
         return di()->get(IdGeneratorInterface::class)->generate();
     }
