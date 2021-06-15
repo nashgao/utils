@@ -38,12 +38,7 @@ if (! function_exists('getWorkerId')) {
     function getWorkerId(): int
     {
         try {
-            $server = getServer();
-            if (! $server->taskworker) {
-                return $server->worker_id;
-            }
-            $workerNum = di()->get(ConfigInterface::class)->get('server.settings.worker_num');
-            return $workerNum + $server->worker_id;
+            return getServer()->worker_id;
         } catch (\Throwable $throwable) {
             return 0;
         }
