@@ -41,3 +41,12 @@ if (! function_exists('urlmd5')) {
         return urlencode(md5($param));
     }
 }
+
+if (! function_exists('throws')) {
+    function throws(callable $cond, Throwable $throwable)
+    {
+        if ($cond) {
+            throw $throwable;
+        }
+    }
+}
