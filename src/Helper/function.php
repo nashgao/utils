@@ -45,7 +45,7 @@ if (! function_exists('urlmd5')) {
 if (! function_exists('throws')) {
     function throws(callable $cond, Throwable $throwable)
     {
-        if ($cond) {
+        if ($cond()) {
             throw $throwable;
         }
     }
