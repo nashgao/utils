@@ -26,8 +26,7 @@
         },
         "files": [
             "src/Helper/hyperf.php",
-            "src/Helper/function.php",
-            "src/Helper/utils.php"
+            "src/Helper/function.php"
         ]
     },
     "scripts": {

@@ -5,11 +5,13 @@ declare(strict_types=1);
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\Snowflake\IdGeneratorInterface;
 use Hyperf\Utils\ApplicationContext;
+use JetBrains\PhpStorm\Pure;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Swoole\Server;
 
 if (! function_exists('di')) {
+    #[Pure]
     function di(): ContainerInterface
     {
         return ApplicationContext::getContainer();
@@ -28,7 +30,7 @@ if (! function_exists('getServer')) {
     {
         try {
             return di()->get(Server::class);
-        } catch (\Throwable $throwable) {
+        } catch (\Throwable) {
             return null;
         }
     }
@@ -39,7 +41,7 @@ if (! function_exists('getWorkerId')) {
     {
         try {
             return getServer()->worker_id;
-        } catch (\Throwable $throwable) {
+        } catch (\Throwable) {
             return 0;
         }
     }

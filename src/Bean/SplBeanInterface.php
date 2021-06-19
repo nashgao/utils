@@ -8,9 +8,9 @@ interface SplBeanInterface
 {
     public function issetPrimaryKey(): bool;
 
-    public function getPrimaryKey();
+    public function getPrimaryKey(): mixed;
 
-    public static function of();
+    public static function of(): static;
 
-    public function toArray(array $columns = null, $filter = null);
+    public function toArray(array $columns = null, $filter = null): array;
 }
