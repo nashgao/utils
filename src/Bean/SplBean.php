@@ -37,7 +37,7 @@ abstract class SplBean extends Bean implements SplBeanInterface
         return static::of(get_object_vars($this));
     }
 
-    public function toArray(array $columns = null, int $filter = null): array
+    public function toArray(array $columns = null, $filter = null): array
     {
         if (! isset($filter)) { // if filter is not specified, then use not null filter
             $filter = Bean::FILTER_NOT_NULL;
