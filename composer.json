@@ -18,7 +18,8 @@
     },
     "require-beta": {
         "swoole/ide-helper": "~4.6",
-        "friendsofphp/php-cs-fixer": "^2.14"
+        "friendsofphp/php-cs-fixer": "^2.14",
+        "phpstan/phpstan": "^0.12.90"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -32,6 +33,7 @@
         ]
     },
     "scripts": {
-        "cs-fix": "php-cs-fixer fix $1"
+        "cs-fix": "php-cs-fixer fix $1",
+        "analyse": "phpstan analyse --memory-limit 300M -l 0 -c phpstan.neon ./src"
     }
 }

@@ -13,7 +13,7 @@ abstract class SplBean extends Bean implements SplBeanInterface
     #[Pure] 
     public static function of(...$parameters): static
     {
-        return new static(...$parameters);
+        return new static($parameters);
     }
 
     public function filter(Closure $fn): array
