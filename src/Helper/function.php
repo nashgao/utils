@@ -50,6 +50,6 @@ if (! function_exists('throws')) {
      */
     function throws(Closure $cond, Throwable $throwable)
     {
-        ! $cond() ?: throw $throwable;
+        $cond() ?: throw $throwable;
     }
 }
