@@ -31,9 +31,6 @@ abstract class SplBean extends Bean implements SplBeanInterface
     public function map(Closure $fn): SplBean
     {
         foreach (get_object_vars($this) as $key => $value) {
-            if (! isset($this->{$key})) {
-                continue;
-            }
             $this->{$key} = $fn($value, $key);
         }
 
